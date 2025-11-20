@@ -3,6 +3,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "../ui/ToastProvider";
 
+// In production (Render) we will set REACT_APP_API_BASE_URL
+// In development we fallback to http://localhost:3000
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL || "http://localhost:3000";
+
 export function LoginPage() {
   const [email, setEmail] = useState("auth-admin@test.com");
   const [password, setPassword] = useState("password");
@@ -18,12 +23,12 @@ export function LoginPage() {
     setLoading(true);
 
     try {
-      const resp = await fetch("/api/login", {
+      const resp = await fetch(`${API_BASE_URL}/api/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include",
+        credentials: "include", // send cookies for session
         body: JSON.stringify({ email, password }),
       });
 
