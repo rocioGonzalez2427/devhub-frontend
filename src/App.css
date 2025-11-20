@@ -1,0 +1,473 @@
+/* Global reset-ish */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f5f5f7;
+  color: #111827;
+}
+
+/* Links */
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* App layout */
+.app-root {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+}
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.app-header-title h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.app-header-title p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.app-nav {
+  display: flex;
+  gap: 12px;
+}
+
+.app-nav-link {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  font-size: 0.9rem;
+}
+
+.app-nav-link:hover {
+  background: #d1d5db;
+  text-decoration: none;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Card component */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+}
+
+.card + .card {
+  margin-top: 12px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card-body-text {
+  margin: 4px 0 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+/* Badges / tags */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.badge-muted {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease,
+    transform 0.1s ease;
+}
+
+.button-primary {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.button-primary:hover {
+  background: #1d4ed8;
+}
+
+.button-outline {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #111827;
+}
+
+.button-outline:hover {
+  background: #f9fafb;
+}
+
+/* Project pages */
+.project-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Task list */
+.task-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0 0;
+}
+
+.task-item {
+  padding: 8px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.task-item:first-child {
+  border-top: none;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.task-assignee {
+  margin-left: 4px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* Activity */
+.activity-block {
+  margin-top: 6px;
+  padding-left: 4px;
+}
+
+.activity-title {
+  font-size: 0.85rem;
+  margin: 0 0 2px;
+}
+
+.activity-list {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 0;
+}
+
+.activity-item {
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+/* Back link */
+.back-link {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.back-link:hover {
+  color: #111827;
+}
+
+/* Status badges (colored) */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.status-pending {
+  background: #eab308; /* amarillo */
+}
+
+.status-in_progress {
+  background: #3b82f6; /* azul */
+}
+
+.status-done {
+  background: #22c55e; /* verde */
+}
+
+/* Loading states */
+.select-loading {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.button-loading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.toast {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  animation: toast-fade-in-out 3s ease forwards;
+  z-index: 9999;
+}
+
+@keyframes toast-fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+.toast {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  animation: toast-fade-in-out 3s ease forwards;
+  z-index: 9999;
+}
+
+@keyframes toast-fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.activity-item-new {
+  background: #fef3c7; /* amarillo suave */
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.task-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.06);
+  border-left: 4px solid #2563eb;
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.task-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.task-card-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-card-sub {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+/* Grid para All Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 800px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Pequeño resumen de estados dentro de cada card de proyecto */
+.project-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+.project-stat-pill {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f3f4f6;
+}
+
+/* ===== Auth / Login ===== */
+.auth-wrapper {
+  min-height: calc(100vh - 120px); /* debajo del header */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-title {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+}
+
+.auth-subtitle {
+  margin: 0 0 16px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.auth-field {
+  margin-bottom: 12px;
+}
+
+.auth-label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: #4b5563;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
+}
+
+.auth-error {
+  color: #b91c1c;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.auth-hint {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.nav-right .logout-button {
+  margin-left: 12px;
+  padding: 6px 14px;
+  background: #ef4444; /* rojo */
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.nav-right .logout-button:hover {
+  background: #dc2626;
+}
+
